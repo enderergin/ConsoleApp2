@@ -1,62 +1,49 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2
+namespace NetFramework.S10.D3.StaticBolumSonuOdevUygulama
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
-
         {
-        etiket:;
-            int bakiye = 1000;
-            Console.WriteLine("Atm'ye hos geldiniz");
-            Console.WriteLine("yapmak istediğiniz işlemi seçin");
-            Console.WriteLine("Bakiye için 1 yazın");
-            Console.WriteLine("Para çekmek için 2 yazın");
-            Console.WriteLine("Para yatırmak için 3 yazın");
-            
-            string secim = Console.ReadLine();
-            if (secim == "1")
+            Bilgi M1 = new Bilgi();
+            M1.musteriID = 1;
+            M1.isim = "ender";
+            M1.soyisim = "ergin";
+            M1.emailAdres = "sda@gmail.com";
+            M1.KullaniciAdi = "ender.ergin";
+            M1.sifre = "1";
+
+            Bilgi.MusteriEkle(M1);
+
+            Bilgi M2 = new Bilgi()
             {
-                Console.WriteLine("Bakiyeniz: " + (bakiye));
-            }
-            else if (secim == "2")
-            {
-                Console.WriteLine("Çekmek istediğiniz tutarı giriniz: ");
-                int sayi1 = Convert.ToInt32(Console.ReadLine());
+                musteriID = 2,
+                isim = "ender",
+                soyisim = "ergin",
+                emailAdres = "enderergin31@gmail.com",
+                KullaniciAdi = "ahmet.atilla",
+                sifre = "2"
+            };
 
-                if (sayi1 < bakiye)
-                {
-                    Console.WriteLine("kalan bakiye: " + (bakiye - sayi1));
-                    Console.ReadLine();
-                }
+            Bilgi.MusteriEkle(M2);
 
+            Bilgi M3 = new Bilgi();
+            M3.musteriID = 1;
+            M3.isim = "ender";
+            M3.soyisim = "ergin";
+            M3.emailAdres = "enderergin@endrergn.com.tr";
+            M3.KullaniciAdi = "ender_ergin";
+            M3.sifre = "1";
 
-                else
-                {
-                    Console.WriteLine("Fazla miktar çekemezsin");
-                }
-            }
-            else if (secim == "3")
-            {
-
-                Console.WriteLine("Yatırmak istediğiniz tutarı giriniz: ");
-                int sayi2 = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Toplam tutar: " + (bakiye + sayi2));
-            }
-            else {
-                Console.WriteLine("Yanlış işlem girdniz");
-            
-            }
-            Console.ReadKey();
-            goto etiket;
+            Bilgi.MusteriEkle(M3);
 
 
         }
     }
 }
-
